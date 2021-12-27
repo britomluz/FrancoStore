@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="./assets/favicon.png">
+  <link rel="stylesheet" href="sweetalert2.min.css">
+  <!-- <link rel="stylesheet" href="styles/styles.css"> -->
+  <link rel="stylesheet" href="styles/farmacia.css">
+  <title>Farmacia | Franco PetShop</title>
+</head>
+
+<body >
+  <div id="app">    
+  <nav id="nav" class="navbar navbar-light bg-light">
+    <div class="">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/logotipo.png" alt="">
+      </a>
+    </div>
+
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Tienda
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item active" href="farmacia.html">Farmacia</a></li>
+                <li><a class="dropdown-item" href="#">Juguetes</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="navCart">
+      <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <i class="bi bi-cart-check-fill"><span class="cantidad">{{totalQantity}}</span></i>
+      </button>
+    </div>
+    <div class="container-fluid">
+    </div>
+  </nav>
+
+
+
+  <header>
+    <div id="productos-fmcia">
+      <h1 class="text-center">FARMACIA</h1>
+    </div>
+  </header>
+  <!-- Farmacia -->
+  <main id="productos-farmacia">
+
+    
+      <div>
+        <form  @submit="searchProduct" class="d-flex align-items-start flex-column search">
+          <input class="" type="search" v-model="search" placeholder="Search product..." aria-label="Search">
+      </form>
+      <p v-cloak class="d-flex align-items-start flex-column">Your search is: {{search}}</p>
+      </div>
+
+    <section class="container-fluid">
+      <!-- Cards del peoducto-->
+      <div class="col-12 mb-2 row" id="container-products">
+        <div v-for="producto of filterProductsMedicine" :key="producto._id" class="card" style="width: 18rem;">
+          <div v-if="search === producto.nombre">
+          <img :src="producto.imagen" class="card-img-top" id="img-product" :alt="producto.nombre">
+          <div class="card-body">
+            <h5 v-cloak class="card-title">{{producto.nombre}}</h5>
+            <p v-cloak class="card-text">${{producto.precio}}</p>
+            <div class="btn-card-button">
+              <button href="#" class="btn btn-primary" @click="addToCart(producto._id)"
+                :id="producto._id">Comprar</button>
+              <button href="#" class="btn btn-primary" @click="mostrarModal(producto._id)" :id="producto._id"
+                data-bs-toggle="modal" data-bs-target="#exampleModal" id="ver-producto"><i
+                  class="bi bi-zoom-in"></i></button>
+            </div>
+            <div v-if="producto.stock > 5 && producto.stock !== 0" id="ultimas-unidades">
+              <p>Ultimas Unidades</p>
+            </div>
+            <!-- <div v-if="producto.stock === 0" id="sin-stock"><p>sin-stock</p></div> -->
+          </div>
+        </div>
+        <div v-else="search === ''">
+          <img :src="producto.imagen" class="card-img-top" id="img-product" :alt="producto.nombre">
+          <div class="card-body">
+            <h5 v-cloak class="card-title">{{producto.nombre}}</h5>
+            <p v-cloak class="card-text">${{producto.precio}}</p>
+            <div class="btn-card-button">
+              <button href="#" class="btn btn-primary" @click="addToCart(producto._id)"
+                :id="producto._id">Comprar</button>
+              <button href="#" class="btn btn-primary" @click="mostrarModal(producto._id)" :id="producto._id"
+                data-bs-toggle="modal" data-bs-target="#exampleModal" id="ver-producto"><i
+                  class="bi bi-zoom-in"></i></button>
+            </div>
+            <div v-if="producto.stock > 5 && producto.stock !== 0" id="ultimas-unidades">
+              <p>Ultimas Unidades</p>
+            </div>
+            <!-- <div v-if="producto.stock === 0" id="sin-stock"><p>sin-stock</p></div> -->
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    <!-- MODAL DEL PRODUCTO -->
+    <template class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+          </div>
+          <div class="modal-body">
+            <!-- <div class="card mb-3" style="max-width: 540px;"> -->
+            <div v-for="producto of modal" :key="producto._id" class="row g-0">
+              <div class="col-md-4">
+                <img :src="producto.imagen" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body" id="modal-producto">
+                  <h5 class="card-title">{{producto.nombre}}</h5>
+                  <p class="card-text">{{producto.descripcion}}</p>
+                  <p class="card-price">${{producto.precio}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- </div> -->
+          </div>
+          <div class="modal-footer">
+            <button href="#" class="btn btn-primary" @click="addToCart(producto._id)" :id="producto._id"
+              data-bs-dismiss="modal">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+
+  </main>
+  <!-- CARRITO OFF CANVAS -->
+  <div id="carrito-canvas">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Carrito de compras</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
+      </div>
+      <!-- body del canvas -->
+      <div class="offcanvas-body">
+        <table class="table">
+          <thead>
+            <tr class="title-offcanvas">
+              <th scope="col" colspan="2">Producto</th>
+              <th scope="col">Cant.</th>
+              <th scope="col">Acción</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <!-- Template del carrito  -->
+          <tbody id="items">
+            <template v-for="producto in cart" :key="producto._id" id="template-cart">
+              <tr>
+                <td scope="row"><img class="img-fluid img-thumbnail" :src="producto.imagen" :alt="producto.nombre"></td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.__v}}</td>
+                <td>
+                  <button :id="producto._id" class="btn btn-info btn-sm" @click="addOne"> + </button>
+                  <button :id="producto._id" class="btn btn-danger btn-sm"  @click="deleteOne"> - </button>
+                </td>
+                <td class="off-canvas-priceTotal">${{producto.precio}}</td>
+              </tr>
+            </template>
+          </tbody>
+          <tfoot>
+            <tr id="footer-cart">
+              <td v-if="cart.length === 0" scope="row" colspan="5">Carrito vacío</td>
+            </tr>
+            <tr>
+              <td v-if="cart.length === 0" scope="row" colspan="5"> ir a la Tienda <a href="farmacia.html">Farmacia
+                </a> | <a href="juguetes"> Juguetes</a></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <!-- footer  -->      
+      <div class="d-flex justify-content-around" v-if="cart.length > 0" id="template-footer">
+        <a class="" type="button" id="vaciar-carrito" @click="emptyCart">
+          Vaciar Carrito
+        </a>
+        <p scope="row" colspan="2">
+          Total prod: <span> {{totalQantity}}</span>
+        </p>
+        <p class="font-weight-bold"> <b>Precio total: <span>${{calculateTotal()}}</span></b></p>
+      </div>
+      <div class="canvas-bottom">
+        <button id="btn-seguir-comprando" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+          aria-label="Close">
+          <p> Seguir comprando</p>
+        </button>
+        <a id="btn-finalizar-compra" type="button" class="btn-close" href="compra.html">
+          <p> Finalizar compra</p>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>    
+    <div>
+      <img class="img-footer" src="./assets/img_photo.png" alt="">
+    </div>
+    <div class="footer-info">
+      <div>
+        <img src="./assets/logo_blanco.png" alt="">
+      </div>
+      <div class="footer-redes">
+        <div class="icons">
+          <div><i class="bi bi-instagram"> </i> @franco_store</div>
+          <div><i class="bi bi-facebook"> </i> /franco_store</div>
+          <div><i class="bi bi-twitter"> </i> @franco_store</div>
+        </div>
+        <div class="icons">
+          <div><i class="bi bi-telephone-forward-fill"> </i> (011) 1532665987</div>
+          <div><i class="bi bi-envelope-fill"> </i> info@francostore.com</div>
+          <div><i class="bi bi-geo-alt-fill"> </i> </i> Rio de Janeiro 300. CABA</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyrigth">
+      <span class="copyright">© Pet Shop | </span>
+      <span class="rights"> All Rights Reserved</span>
+    </div>
+  </footer>
+    
+  </footer>
+  
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./scripts/vue.js"></script>
+</body>
+
+</html>

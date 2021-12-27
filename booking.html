@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./account.css">
+  <title>Acquerello</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <nav id="navbar" class="navbar navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="../assets/acquerello.png" alt="" width="150">
+        </a>
+        <div class="d-flex">
+          <a class="nav-link" href="index.html">HOME</a>
+          <a class="nav-link" href="order.html">ORDER NOW</a>
+          <a class="nav-link" href="booking.html">BOOKING</a>
+          <a class="nav-link" href="contact.html">CONTACT</a>
+        </div>
+        <div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <button class="navIcon"><i class="bi bi-search"></i></button>
+          <a href="login.html" class="navIcon"><i class="bi bi-person-fill"></i></a>
+          <button class="navIcon" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasCart"><i
+              class="bi bi-cart-fill"></i></button>
+        </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="order.html">Order Now</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="booking.html">Bookings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="headerPages d-flex align-items-center">
+      <h1>Visit us</h1>
+      <!-- <h2>Italian Food</h2> -->
+    </header>
+
+    <main class="d-flex flex-column align-items-center justify-content-center">
+      
+      <div class="d-flex flex-column justify-content-center">
+        <h3 class="mt-5 py-4">Book a table</h3>
+        <div>
+          <h4 class="text-center mb-2">Select day and time</h4>
+          <div class="d-flex justify-content-center">
+            <input class="px-2 m-2" type="date" name="" id="">
+            <input class="px-2 m-2" type="time" name="" id="">
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <h4 class="text-center mt-5">Select your table</h4>
+        </div>
+        <div>
+          <div class="nav nav-tabs tab-registration" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#golden"
+              type="button" role="tab" aria-controls="nav-home" aria-selected="true">GOLDEN</button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#garden" type="button"
+              role="tab" aria-controls="nav-profile" aria-selected="false">GARDEN</button>
+
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#vip" type="button"
+              role="tab" aria-controls="nav-profile" aria-selected="false">VIP</button>
+
+          </div>
+        </div>
+
+
+        <div class="tab-content bookTable" id="nav-tabContent">
+
+          <div class="tab-pane fade show active golden" id="golden" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class=" d-flex justify-content-center">
+              <div class="py-5 col-12 col-lg-8">
+
+                <div class="container tableContainer">
+                  <div class="table table1 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="1" value="1">
+                    <label for="1" class="label">
+                      <img src="../assets/mesa2.svg" class="w-100 disabled" alt="">
+                    </label>
+                    <small> 1 </small>
+                  </div>
+
+                  <!--   INDIVIDUALS -->
+                  <div class="table table2 container2">
+                    <div class="table table13 d-flex align-items-end">
+                      <small class="indiv p-1">10</small>
+                      <input type="checkbox" name="mesa" id="10" value="10">
+                      <label for="10" class="label">
+                        <img src="../assets/mesa1.svg" class="w-100 p-0" alt="">
+                      </label>
+                    </div>
+
+                    <div class="table table12 bar "><img src="../assets/mesa-barra.png" class="w-100" alt=""></div>
+
+                    <div class="table table13  d-flex align-items-end">
+                      <small class="indiv p-1">19</small>
+                      <input type="checkbox" name="mesa" id="19" value="19">
+                      <label for="19" class="label">
+                        <img src="../assets/mesa1.svg" class="w-100 p-0" alt="">
+                      </label>
+
+                    </div>
+
+                    <div class="table table13 ">
+                      <small class="indiv p-1">11</small>
+                      <input type="checkbox" name="mesa" id="11" value="11">
+                      <label for="11" class="label">
+                        <img src="../assets/mesa1.svg" class="w-100 p-0" alt="">
+                      </label>
+                    </div>
+
+                    <div class="table table13">
+                      <small class="indiv p-1">12</small>
+                      <input type="checkbox" name="mesa" id="12" value="12">
+                      <label for="12" class="label">
+                        <img src="../assets/mesa1.svg" class="w-100 p-0" alt="">
+                      </label>
+                    </div>
+
+                    <div class="table table13">
+                      <small class="indiv p-1">13</small>
+                      <input type="checkbox" name="mesa" id="13" value="13">
+                      <label for="13" class="label">
+                        <img src="../assets/mesa1.svg" class="w-100 p-0" alt="">
+                      </label>
+                    </div>
+
+                    <div class="table table13">
+                      <small class="indiv p-1">14</small>
+                      <input type="checkbox" name="mesa" id="14" value="14">
+                      <label for="14" class="label">
+                        <img src="../assets/mesa1.svg" class="w-100 p-0" alt="">
+                      </label>
+                    </div>
+
+                    <div class="table table13">
+                      <small class="indiv p-1">15</small>
+                      <input type="checkbox" name="mesa" id="15" value="15">
+                      <label for="15" class="label">
+                        <img src="../assets/mesa1.svg" class="w-100 p-0" alt="">
+                      </label>
+                    </div>
+
+                    <div class="table table13">
+                      <small class="indiv p-1">16</small>
+                      <input type="checkbox" name="mesa" id="16" value="16">
+                      <label for="16" class="label">
+                        <img src="../assets/mesa1.svg" class="w-100 p-0" alt="">
+                      </label>
+                    </div>
+
+                    <div class="table table13">
+                      <small class="indiv p-1">17</small>
+                      <input type="checkbox" name="mesa" id="17" value="17">
+                      <label for="17" class="label">
+                        <img src="../assets/mesa1.svg" class="w-100 p-0" alt="">
+                      </label>
+                    </div>
+
+                    <div class="table table13">
+                      <small class="indiv p-1">18</small>
+                      <input type="checkbox" name="mesa" id="18" value="18">
+                      <label for="18" class="label">
+                        <img src="../assets/mesa1.svg" class="w-100 p-0" alt="">
+                      </label>
+                    </div>
+                  </div>
+
+
+
+                  <!-- TABLES 2 TO 6 -->
+                  <div class="table table3 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="2" value="2">
+                    <label for="2" class="label">
+                      <img src="../assets/mesa2.svg" class="w-100" alt="">
+                    </label>
+                    <small> 2 </small>
+                  </div>
+                  <div class="table table4 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="5" value="5">
+                    <label for="5" class="label">
+                      <img src="../assets/mesa2.svg" class="w-100" alt="">
+                    </label>
+                    <small> 5 </small>
+                  </div>
+                  <div class="table table5 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="4" value="4">
+                    <label for="4" class="label">
+                      <img src="../assets/mesa2.svg" class="w-100" alt="">
+                    </label>
+                    <small> 4 </small>
+                  </div>
+                  <div class="table table6 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="3" value="3">
+                    <label for="3" class="label">
+                      <img src="../assets/mesa4.svg" class="w-100" alt="">
+                    </label>
+                    <small> 3 </small>
+                  </div>
+                  <div class="table table7 d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="9" value="9">
+                    <label for="9" class="label">
+                      <img src="../assets/mesa6.svg" class="w-100" alt="">
+                    </label>
+                    <small> 9 </small>
+                  </div>
+                  <div class="table table8 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="6" value="6">
+                    <label for="6" class="label">
+                      <img src="../assets/mesa4.svg" class="w-100" alt="">
+                    </label>
+                    <small> 6 </small>
+                  </div>
+                  <div class="table table9 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="7" value="7">
+                    <label for="7" class="label">
+                      <img src="../assets/mesa4.svg" class="w-100" alt="">
+                    </label>
+                    <small> 7 </small>
+                  </div>
+                  <div class="table table10 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="8" value="8">
+                    <label for="8" class="label">
+                      <img src="../assets/mesa4.svg" class="w-100" alt="">
+                    </label>
+                    <small> 8 </small>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button type="submit">Book table</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade garden" id="garden" role="tabpanel" aria-labelledby="nav-profile-tab" v-cloak>
+            <div class=" d-flex justify-content-center">
+              <div class="py-5 col-12 col-lg-8">
+
+                <div class="container tableContainer">
+                  <div class="table table4 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="20" value="20">
+                    <label for="20" class="label">
+                      <img src="../assets/mesa2.svg" class="w-100" alt="">
+                    </label>
+                    <small> 20 </small>
+                  </div>
+                  <div class="table table5 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="21" value="21">
+                    <label for="21" class="label">
+                      <img src="../assets/mesa2.svg" class="w-100" alt="">
+                    </label>
+                    <small> 21 </small>
+                  </div>
+                  <div class="table table4 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="22" value="22">
+                    <label for="22" class="label">
+                      <img src="../assets/mesa2.svg" class="w-100" alt="">
+                    </label>
+                    <small> 22 </small>
+                  </div>
+                  <div class="table table5 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="23" value="23">
+                    <label for="23" class="label">
+                      <img src="../assets/mesa2.svg" class="w-100" alt="">
+                    </label>
+                    <small> 23 </small>
+                  </div>
+                  <div class="table table6 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="24" value="24">
+                    <label for="24" class="label">
+                      <img src="../assets/mesa4.svg" class="w-100" alt="">
+                    </label>
+                    <small> 24 </small>
+                  </div>                  
+                  <div class="table table8 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="25" value="25">
+                    <label for="25" class="label">
+                      <img src="../assets/mesa4.svg" class="w-100" alt="">
+                    </label>
+                    <small> 25 </small>
+                  </div>
+                  <div class="table table9 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="26" value="26">
+                    <label for="26" class="label">
+                      <img src="../assets/mesa4.svg" class="w-100" alt="">
+                    </label>
+                    <small> 26 </small>
+                  </div>
+                  <div class="table table10 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="27" value="27">
+                    <label for="27" class="label">
+                      <img src="../assets/mesa4.svg" class="w-100" alt="">
+                    </label>
+                    <small> 27 </small>
+                  </div>
+                  <div class="table table10 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="28" value="28">
+                    <label for="28" class="label">
+                      <img src="../assets/mesa4.svg" class="w-100" alt="">
+                    </label>
+                    <small> 28 </small>
+                  </div>
+                  <div class="table table4 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="29" value="29">
+                    <label for="29" class="label">
+                      <img src="../assets/mesa2.svg" class="w-100" alt="">
+                    </label>
+                    <small> 29 </small>
+                  </div>
+                  <div class="table table5 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="30" value="30">
+                    <label for="30" class="label">
+                      <img src="../assets/mesa2.svg" class="w-100" alt="">
+                    </label>
+                    <small> 30 </small>
+                  </div>
+                  <div class="table table10 tbp d-flex align-items-center justify-content-center">
+                    <input type="radio" name="mesa" id="31" value="31">
+                    <label for="31" class="label">
+                      <img src="../assets/mesa4.svg" class="w-100" alt="">
+                    </label>
+                    <small> 31 </small>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button type="submit">Book table</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade vip" id="vip" role="tabpanel" aria-labelledby="nav-profile-tab" v-cloak>
+            <div class=" d-flex justify-content-center">
+              <div class=" d-flex justify-content-center">
+                <div class="py-5 col-12 col-lg-8">
+  
+                  <div class="container tableContainer vipContainer">                    
+                    <div class="table table10 tablevip tbp d-flex align-items-center justify-content-center">
+                      <input type="radio" name="mesa" id="32" value="32">
+                      <label for="32" class="label">
+                        <img src="../assets/mesagolden.svg" class="w-100" alt="">
+                      </label>
+                      <!-- <small> 31 </small> -->
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit">Book table</button>
+                  </div>
+  
+                </div>
+              </div>              
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+
+    </main>
+
+
+
+
+  </div>
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="./scripts/index.js"></script>
+
+</body>
+
+</html>

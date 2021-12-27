@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <title>Acquerello</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <nav id="navbar" class="navbar navbar-light fondoTransp fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="../assets/acquerello.png" alt="" width="150">
+        </a>
+
+        <div class="d-flex navlinks">
+          <a class="nav-link" href="index.html">HOME</a>
+          <a class="nav-link" href="order.html">ORDER NOW</a>
+          <a class="nav-link" href="booking.html">BOOKING</a>
+          <a class="nav-link" href="contact.html">CONTACT</a>
+        </div>
+
+        <div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="login.html" class="navIcon"><i class="bi bi-person-fill"></i></a>
+          <button class="navIcon" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasCart"><i
+              class="bi bi-cart-fill"></i></button>
+        </div>
+
+        <!-- MENU RESPONSIVE -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <a class="navbar-brand" href="#">
+              <img src="../assets/acquerello.png" alt="" width="150">
+            </a>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+              <h5>x</h5>
+            </button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="order.html">Order Now</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="booking.html">Bookings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="headerPages d-flex flex-column align-items-center">
+      <h1>Order Now</h1>
+      <h3>FINE FOOD & DINING SINCE 1990</h3>
+    </header>
+
+    <main class="d-flex flex-column justify-content-around align-items-center py-5">
+      <h3 class="fs-1">CHECKOUT</h3>
+      <div class="col-11 col-xl-8 d-flex align-items-center justify-content-around">
+
+        <div class="p-3 formCardLoan">
+          <div class="form-header">
+          </div>
+          <!-- Progress bar-->
+          <div class="d-flex justify-content-center">
+            <div class="progressBar col-lg-5">
+              <div ref="progress" class="progress" id="progress" :class="progressActive">
+              </div>
+              <div ref="progressStep1" class="progress-step progress-step-active" data-title="Tipo"><i class="bi bi-truck"></i></div>
+              <div ref="progressStep2" class="progress-step" data-title="Color"><i class="bi bi-credit-card-2-back"></i></div>
+              <div ref="progressStep3" class="progress-step" data-title="Listo!"><i class="bi bi-card-checklist"></i>
+              </div>
+            </div>
+          </div>
+          <!-- Form Steps -->
+          <form  @submit.prevent="" v-cloak>
+
+            <!-- Step 1 -->
+            <div ref="form1" class="form-step form1 form-step-active">
+              <div class="title">
+                <h3 class="text-center">Shipping information</h3>
+              </div>
+              <div class="">
+                <div class=" d-flex flex-column">
+                  <label for="firstName">Firstname</label>
+                  <input type="text" id="firstName">
+                </div>
+                <div class="d-flex flex-column">
+                  <label for="lastName">Lastname</label>
+                  <input type="text" id="lastName">
+                </div>
+                <div class="d-flex flex-column">
+                  <label for="phone">Phone</label>
+                  <input type="text" id="lastName">
+                </div>
+              </div>
+              <div class="title mt-3 ">
+                <h4>Where do you want your order?</h4>
+                <select class="w-100" v-model="" name="cuentas" id="" placeholder="">
+                  <option value="" selected>Select adress</option>
+                  <option value="" selected>[array adress]</option>
+                  <option value="newAdress" selected>Add new adress</option>
+
+                </select>
+                <div>
+                  <div>
+                    <form class="d-flex flex-column">
+                      <div class=" d-flex flex-column">
+                        <div class="d-flex align-items-center justify-content-around">
+                          <div class="d-flex flex-column w-100">
+                            <label for="firstName">*Street</label>
+                            <input type="text" id="firstName" required>
+                          </div>
+                        </div>
+                        <div class=" d-flex flex-column">
+                          <div class="d-flex align-items-center justify-content-around">
+
+                            <div class="d-flex flex-column">
+                              <label for="firstName">*Nº</label>
+                              <input type="text" id="firstName" required>
+                            </div>
+                            <div class="d-flex flex-column">
+                              <label for="firstName">Zip Code</label>
+                              <input type="text" id="firstName">
+                            </div>
+                          </div>
+                          <div>
+                            <label for="reference">Reference</label>
+                            <textarea name="" id="reference" cols="30" rows="3" class="col-12"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>                
+              </div>
+              <div class="mt-2">
+                <a ref="next1"
+                  @click="updateForms(this.$refs.next1, this.$refs.form1, this.$refs.form2, this.$refs.progressStep2)"
+                  class="btn btn-next w-100">Next<i class="bi bi-arrow-right "></i></a>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div ref="form2" class="form-step form2">
+              <div class="title  mt-5">
+                <h3 class="text-center">Billing data</h3>
+              </div>
+              <div class="">
+                <div class=" d-flex flex-column">
+                  <label for="ccn">Card Number</label>
+                  <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,16}" autocomplete="cc-number"
+                    maxlength="16" placeholder="xxxxxxxxxxxxxxxx">
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div class=" d-flex flex-column">
+                  <label for="ccn">CVV</label>
+                  <input id="ccn" type="tel" inputmode="numeric" autocomplete="cc-number" maxlength="3"
+                    placeholder="xxx">
+                </div>
+                <div class=" d-flex flex-column">
+                  <label for="ccn">Vec.</label>
+                  <input id="ccn" type="tel" inputmode="text" autocomplete="cc-number" maxlength="5"
+                    placeholder="yy/mm">
+                </div>
+              </div>
+              <div class="btn-group mt-3">
+                <a ref="back1"
+                  @click="backForms(this.$refs.back1, this.$refs.form1, this.$refs.form2, this.$refs.progressStep2)"
+                  class="btn btn-prev"><i class="bi bi-arrow-left "></i>Go back</a>
+                <a ref="next2"
+                  @click="updateForms(this.$refs.next2, this.$refs.form2, this.$refs.form3, this.$refs.progressStep3)"
+                  class="btn btn-next">Next <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div ref="form3" class="form-step form3 ">
+              <div class="title  mt-5">
+                <h3 class="text-center">Checkout Details</h3>
+              </div>
+              <div class="pt-5">
+                <h4>Your order: </h4>
+                <p v-if="cart != ''">Products: <b>pedido</b> </p>
+                <p v-else> Products: <span>You don't have products yet</span> </p>
+                <p v-if="cart != ''">Total price: <b> $...</b> </p>
+              </div>
+              <div class=" mt-5 pt-5">
+                <h4 class="text-center">Confirm your order</h4>
+                <div class="btn-group ">
+                  <a ref="back2"
+                    @click="backForms(this.$refs.back2, this.$refs.form2, this.$refs.form3, this.$refs.progressStep3)"
+                    class="btn btn-prev"><i class="bi bi-arrow-left"></i>
+                    Go back</a>
+                  <button ref="submit" type="submit" value="submit" class="btn btn-confirm"
+                    :disabled="btnDisabledLoan">Confirm <i class="bi bi-check-lg"></i></button>
+                  <!-- <p> @click="nextProgressBar(this.$refs.submit, this.$refs.progressStep3)"</p> NO SE QUE FUNCION CUMPLE-->
+                </div>
+              </div>
+              <div v-if="errorLoan" id="advertencia" class="d-flex justify-content-center align-items-center pt-4"
+                v-cloak>
+                <div class="d-flex align-items-center er">
+                  <div class="barraError"></div>
+                  <div class="circleError"><i class="bi bi-exclamation"></i></div>
+                </div>
+                <small class="text-danger">{{error_newLoan}}</small>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <footer class="d-flex flex-wrap justify-content-around align-items-center py-4">
+    <div class="d-flex flex-column navlinks">
+      <h2 class="fs-3">Quick Links</h2>
+      <a class="nav-link" href="#">HOME</a>
+      <a class="nav-link" href="#">ORDER NOW</a>
+      <a class="nav-link" href="#">BOOKING</a>
+      <a class="nav-link" href="#">CONTACT</a>
+    </div>
+    <div>
+      <img src="../assets/acquerello.png" alt="" width="200">
+    </div>
+    <div class="d-flex flex-column">
+      <h2 class="fs-3">Contact Us</h2>
+      <div class="d-flex justify-content-around iconFooter">
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-twitter"></i>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    let menu = document.getElementById('navbar')
+    window.addEventListener('scroll', function () {
+      // navbar.style.background = 'black'
+      menu.classList.toggle('fondoBlack', window.scrollY > 20)
+
+    })
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../scripts/order.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="./assets/favicon.png">
+  <link rel="stylesheet" href="styles/farmacia.css">
+
+  <title>Franco PetShop</title>
+</head>
+
+<body id="app">
+  <nav id="nav" class="navbar navHome navbar-light bg-light">
+    <div class="">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/logotipo.png" alt="">
+      </a>
+    </div>
+
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Tienda
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="farmacia.html">Farmacia</a></li>
+                <li><a class="dropdown-item" href="#">Juguetes</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="navCart">
+      <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <i class="bi bi-cart-check-fill"><span class="cantidad">{{totalQantity}}</span></i>
+      </button>
+    </div>
+    <div class="container-fluid">
+    </div>
+  </nav>
+
+  <header>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./assets/banner_uno.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/banner_dos.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/banner_tres.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+
+    </div>    
+  </header>  
+  <main>
+    <div class="d-flex justify-content-evenly">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="bColor1 p-3">
+          <a href="farmacia.html"><img src="./assets/farmacia.png" width="80" alt=""></a>
+        </div>
+        
+        <h4 class="cViolet mt-2">Farmacia</h4>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="bColor2 p-3">
+          <a href="juguetes.html"><img src="./assets/juguetes.png" width="80" alt=""></a>          
+        </div>
+        
+        <h4 class="cViolet mt-2">Juguetes</h4>
+      </div>
+    </div>
+
+    <section>
+      <h1>BIENVENIDOS A MI TIENDA</h1>
+      <div class="nosotros2">
+        <div class="texto">
+          <div>
+            <h2>NOSOTROS</h2>
+            <p>La historia comenzó hace ya más de 19 años.  Iniciamos nuestras actividades el jueves 11 de enero del año 2001 como Pet Shop. Siempre tenemos presente ese primer día que abrimos nuestras puertas y aquel primer cliente que ingresó a comprar. ¡Qué emoción!</p>
+            <p>Nuestros comienzos fueron difíciles. <b class="cViolet">“Las ganas de trabajar y poder brindar un mejor servicio a nuestros clientes”</b> era nuestra premisa.</p>
+            <p>Hoy en día, somos referentes en ventas de accesorios, alimentos balanceados, cachorros de raza, entre otros.</p>
+            <p>Cada día ponemos lo mejor de nosotros en nuestro trabajo por y para la atención de nuestros clientes.</p>
+          </div>
+        </div>
+        <div>
+          <img src="./assets/nosotros.png" alt="imagen_nosotros">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Productos destacados</h2>
+      <!-- Cards del peoducto-->
+      <div class="row" id="container-products">
+        <div v-for="producto of destacados" class="card" style="width: 18rem;">
+          <img :src="producto.imagen" class="card-img-top" id="img-product" alt="...">
+          <div class="card-body">
+            <h5 v-cloak class="card-title">{{producto.nombre}}</h5>
+            <p v-cloak class="card-text">${{producto.precio}}</p>
+            <div class="btn-card-button">
+              <button href="#" class="btn btn-primary">Comprar</button>
+              <button href="#" class="btn btn-primary" id="ver-producto"><i class="bi bi-zoom-in"></i></button>
+            </div>
+            <div v-if="producto.stock > 5 && producto.stock !== 0" id="ultimas-unidades">
+              <p>Ultimas Unidades</p>
+            </div>
+            <!-- <div v-if="producto.stock === 0" id="sin-stock"><p>sin-stock</p></div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="banner">
+        <div><i class="bi bi-cart-check"></i><span>Agregá productos al carrito</span></div>
+        <div><i class="bi bi-truck"></i> <span>Envíos a todo el pais</span> </div>
+        <div><i class="bi bi-credit-card-2-back"></i><span>Todos los medios de pago</span></div>        
+      </div>
+
+    </section>
+
+    <section class="redes">
+      <div>
+        <img src="./assets/perro3.png" alt="">
+      </div>
+      <div>
+        <h2>Seguinos en nuestras redes</h2>
+      <div class="icons-index">
+        <div><i class="bi bi-instagram"> </i></div>
+        <div><i class="bi bi-facebook"> </i></div>
+        <div><i class="bi bi-twitter"> </i></div>
+      </div>
+      </div>
+      
+    </section>
+    <section class="contactanos">
+        <div>
+          <h2>Contactanos!</h2>
+          <div class="icons-index2">
+            <div><i class="bi bi-telephone-forward-fill"> </i> (011) 1532665987</div>
+            <div><i class="bi bi-envelope-fill"> </i> info@francostore.com</div>
+            <div><i class="bi bi-geo-alt-fill"> </i> </i> Rio de Janeiro  300. CABA</div>
+          </div>
+        </div>
+        <div class="mapa">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.6871004428504!2d-58.432572284174746!3d-34.61207296544842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses!2sar!4v1632611108830!5m2!1ses!2sar"  height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+  </main>
+    
+  <footer>    
+    <div>
+      <img class="img-footer" src="./assets/img_photo.png" alt="">
+    </div>
+    <div class="footer-info">
+      <div>
+        <img src="./assets/logo_blanco.png" alt="">
+      </div>
+      <div class="footer-redes">
+        <div class="icons">
+          <div><i class="bi bi-instagram"> </i> @franco_store</div>
+          <div><i class="bi bi-facebook"> </i> /franco_store</div>
+          <div><i class="bi bi-twitter"> </i> @franco_store</div>
+        </div>
+        <div class="icons">
+          <div><i class="bi bi-telephone-forward-fill"> </i> (011) 1532665987</div>
+          <div><i class="bi bi-envelope-fill"> </i> info@francostore.com</div>
+          <div><i class="bi bi-geo-alt-fill"> </i> </i> Rio de Janeiro 300. CABA</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyrigth">
+      <span class="copyright">© Pet Shop | </span>
+      <span class="rights"> All Rights Reserved</span>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="./scripts/vue.js"></script>
+
+  </section>
+</body>
+
+</html>

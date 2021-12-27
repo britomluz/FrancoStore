@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="./assets/favicon.png">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Pet Shop</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="./assets/logo.jpg" alt="" id="logosite"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Tienda
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="juguetes.html">Juguetes</a></li>
+                                <li><a class="dropdown-item" href="farmacia.html">Farmacia</a></li>
+                            </ul>
+                        </li>
+                        <div class="navCart">
+                            <button>
+                                <i class="bi bi-cart-check-fill"></i>
+                            </button>
+                            <span class="totalQuantity">0</span>
+                            <div class="cartDropdown">
+                                <ul class="cartDropdownList">
+                                    <li>Product</li>
+                                </ul>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <div>
+
+        </div>
+        <div>
+            <div class="hero-title">
+                <p>F R A N C O S T O R E</p>
+                <h1>Bienvenidos a MI TIENDA</h1>
+            </div>
+            <div>
+
+            </div>
+        </div>
+
+    </section>
+    <div>
+
+
+    </div>
+    <section>
+        <div id="contact">
+            <div id="contact-text">
+            <h2>Contactanos!</h2>
+            <p>From the time our friends sniff their way through the door until they wag their tails out in the
+                afternoon, we cater to their nature.</p>
+            </div>
+            <form>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Nombre">
+                    <label for="floatingInput">Nombre </label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Apellido">
+                    <label for="floatingInput">Apellido </label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="Telefono">
+                    <label for="floatingInput">Telefono </label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Que mascota tenes?</option>
+                        <option value="1">Perro</option>
+                        <option value="2">Gato</option>
+                        <option value="3">Ambos</option>
+                    </select>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea type="text-area" class="form-control" id="floatingInput"
+                        placeholder="Tu consulta"></textarea>
+                    <label for="floatingInput">Dejanos tu consulta! </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.687100442927!2d-58.43257228513956!3d-34.61207296544647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses!2sar!4v1631638914980!5m2!1ses!2sar"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <footer>
+            <span class="copyright">© Pet Shop | </span>
+            <span class="rights"> All Rights Reserved</span>
+        </footer>
+    </section>
+</body>
+
+</html>
